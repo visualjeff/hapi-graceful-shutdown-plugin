@@ -1,11 +1,15 @@
 
-## About lokijs-plugin
+## About hapi-graceful-shutdown-plugin
 
-A hapi plugin to facilitate the initialization of lokijs within your application.
+Another hapi plugin to facilitate graceful shutdowns caused by sigterm and sigint.
 
-[![Build Status](https://travis-ci.org/visualjeff/lokijsPlugin.png)](https://travis-ci.org/visualjeff/lokijsPlugin)
+[![Build Status](https://travis-ci.org/visualjeff/hapi-graceful-shutdown-plugin.png)](https://travis-ci.org/visualjeff/hapi-graceful-shutdown-plugin)
 
-See the example for details on accessing the database within routes.
+## Install
+```
+npm install hapi-graceful-shutdown-plugin --save
+```
+
 
 ## Usage
 
@@ -13,32 +17,34 @@ See the example for details on accessing the database within routes.
 'use strict';
 
 const Hapi = require('hapi');
+const HapiGracefulShutdownPlugin = require('hapi-graceful-shutdown-plugin')
 
 const server = new Hapi.Server();
+
 server.connection({
-    host: 'localhost',
     port: 3000
 });
 
 server.register([{
-    register: require('lokijs-plugin'),
+    register: require('HapiGracefulShutdownPlugin'),
     options: {
-        env: 'NODEJS' 
+        sigtermTimeout: 10,
+        sigintTimeout: 1
     }
-}, {
-    register: require('./routes/applicationRoutes') //Load routes
 }], (err) => {
+
     if (err) {
         throw err;
     }
 });
 
 server.start((err) => {
+
     if (err) {
         throw err;
     }
 
-    console.dir(`Server running at:  ${server.info.uri}`, {
+    console.dir('Server running at: ' + server.info.uri, {
         colors: true
     });
 });
