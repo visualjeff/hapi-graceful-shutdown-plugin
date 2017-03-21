@@ -4,6 +4,7 @@
 Another hapi plugin to facilitate graceful shutdowns caused by sigterm and sigint.
 
 [![Build Status](https://travis-ci.org/visualjeff/hapi-graceful-shutdown-plugin.png)](https://travis-ci.org/visualjeff/hapi-graceful-shutdown-plugin)
+[![bitHound Overall Score](https://www.bithound.io/github/visualjeff/hapi-graceful-shutdown-plugin/badges/score.svg)](https://www.bithound.io/github/visualjeff/hapi-graceful-shutdown-plugin)
 
 ## Install
 ```
