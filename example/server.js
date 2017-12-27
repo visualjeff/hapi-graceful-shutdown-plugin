@@ -2,32 +2,25 @@
 
 const Hapi = require('hapi');
 
-const server = new Hapi.Server();
-
-server.connection({
+const server = new Hapi.Server({
     port: 3000
 });
 
-server.register([{
-    register: require('../'),
-    options: {
-        sigtermTimeout: 10,
-        sigintTimeout: 1
-    }
-}], (err) => {
+const startup = async () => {
 
-    if (err) {
-        throw err;
-    }
+    await server.register([{
+        plugin: require('../'),
+        options: {
+            sigtermTimeout: 10,
+            sigintTimeout: 1
+        }
+    }]);
+    await server.start();
+};
+
+startup().catch((err) => {
+
+    throw err;
 });
 
-server.start((err) => {
-
-    if (err) {
-        throw err;
-    }
-
-    console.dir('Server running at: ' + server.info.uri, {
-        colors: true
-    });
-});
+console.log(`${new Date()}: server running at ${server.info.uri}`);
