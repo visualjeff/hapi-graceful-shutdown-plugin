@@ -16,43 +16,47 @@ const expect = Code.expect;
 
 describe('Hapi Graceful Shutdown', () => {
 
-    it('schema validation passes', (done) => {
+    it('schema validation passes', () => {
 
         const server = new Hapi.Server();
-        server.connection();
+        const register = async () => {
 
-        server.register({
-            register: require('../'),
-            options: {
-                sigtermTimeout: 10,
-                sigintTimeout: 3
-            }
-        }, (err) => {
+            await server.register([{
+                plugin: require('../'),
+                options: {
+                    sigtermTimeout: 10,
+                    sigintTimeout: 3
+                }
+            }]);
+        };
+
+        register().catch((err) => {
 
             expect(err).to.be.undefined();
         });
-        done();
     });
 
-    it('schema validation fails because of extra option value', (done) => {
+    it('schema validation fails because of extra option value', () => {
 
         const server = new Hapi.Server();
-        server.connection();
+        const register = async () => {
 
-        server.register({
-            register: require('../'),
-            options: {
-                sigtermTimeout: 10,
-                sigintTimeout: 3,
-                dumb: 'foo'
-            }
-        }, (err) => {
+            await server.register([{
+                plugin: require('../'),
+                options: {
+                    sigtermTimeout: 10,
+                    sigintTimeout: 3,
+                    dumb: 'foo'
+                }
+            }]);
+        };
+
+        register().catch((err) => {
 
             expect(err).to.be.an.instanceof(Error);
             expect(err.name).to.equal('ValidationError');
             expect(err.details[0].message).to.equal('"dumb" is not allowed');
         });
-        done();
     });
 
 });
