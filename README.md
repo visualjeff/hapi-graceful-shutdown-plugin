@@ -30,7 +30,7 @@ const server = new Hapi.Server({
 
 const startup = async () => {
     await server.register([{
-        plugin: require('HapiGracefulShutdownPlugin'),
+        plugin: HapiGracefulShutdownPlugin,
         options: {
             sigtermTimeout: 10,
             sigintTimeout: 1
