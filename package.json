@@ -1,7 +1,7 @@
 {
   "name": "hapi-graceful-shutdown-plugin",
   "description": "Another hapi shutdown plugin",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "repository": "git://github.com/visualjeff/hapi-graceful-shutdown-plugin.git",
   "bugs": {
     "url": "https://github.com/visualjeff/hapi-graceful-shutdown-plugin/issues"
@@ -13,18 +13,18 @@
     "shutdown"
   ],
   "engines": {
-    "node": ">=7.6.0"
+    "node": ">=8.0.0"
   },
   "dependencies": {
-    "joi": "^13.0.2"
+    "@hapi/joi": "^15.0.1"
   },
   "devDependencies": {
-    "code": "^5.1.2",
-    "hapi": "^17.2.0",
-    "lab": "^15.1.2"
+    "@hapi/code": "^5.3.1",
+    "@hapi/hapi": "^17.9.0",
+    "@hapi/lab": "^18.1.2"
   },
   "scripts": {
-    "test": "lab -r console -t 100 -a code -L",
+    "test": "lab -r console -t 100 -a @hapi/code -L",
     "test-cov-html": "lab -r html -o coverage.html -a code -L"
   },
   "license": "MIT"
