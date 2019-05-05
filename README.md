@@ -20,7 +20,7 @@ npm install hapi-graceful-shutdown-plugin --save
 ```js
 'use strict';
 
-const Hapi = require('hapi');
+const Hapi = require('@hapi/hapi');
 const HapiGracefulShutdownPlugin = require('hapi-graceful-shutdown-plugin');
 
 const server = new Hapi.Server({
