@@ -17,7 +17,6 @@ npm install hapi-graceful-shutdown-plugin --save
 'use strict';
 
 const Hapi = require('@hapi/hapi');
-const HapiGracefulShutdownPlugin = require('hapi-graceful-shutdown-plugin');
 
 const server = new Hapi.Server({
     host: localhost,
@@ -26,7 +25,7 @@ const server = new Hapi.Server({
 
 const startup = async () => {
     await server.register([{
-        plugin: require('HapiGracefulShutdownPlugin'),
+        plugin: require('hapi-graceful-shutdown-plugin'),
         options: {
             sigtermTimeout: 10,
             sigintTimeout: 1
