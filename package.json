@@ -1,7 +1,7 @@
 {
   "name": "hapi-graceful-shutdown-plugin",
   "description": "Another hapi shutdown plugin",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "repository": "git://github.com/visualjeff/hapi-graceful-shutdown-plugin.git",
   "bugs": {
     "url": "https://github.com/visualjeff/hapi-graceful-shutdown-plugin/issues"
