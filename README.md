@@ -1,7 +1,7 @@
 
 ## About hapi-graceful-shutdown-plugin
 
-Another hapi plugin to facilitate graceful shutdowns caused by sigterm and sigint.  Updated to work with Hapi v17.  Older versions of the plugin support Hapi v16.
+Another hapi plugin to facilitate graceful shutdowns caused by sigterm and sigint.  Updated to work with Hapi v17 and v18.  Older versions of the plugin support Hapi v16.
 
 [![Build Status](https://travis-ci.org/visualjeff/hapi-graceful-shutdown-plugin.png)](https://travis-ci.org/visualjeff/hapi-graceful-shutdown-plugin)
 
