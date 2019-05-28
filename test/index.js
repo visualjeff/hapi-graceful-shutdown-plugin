@@ -1,6 +1,6 @@
 'use strict';
 
-const { expect } = require('@hapi/code');
+const Code = require('@hapi/code');
 const Hapi = require('@hapi/hapi');
 const Lab = require('@hapi/lab');
 
@@ -9,7 +9,10 @@ const internals = {};
 
 // Test shortcuts
 const lab = exports.lab = Lab.script();
-const { describe, it } = lab;
+const describe = lab.describe;
+const it = lab.it;
+const expect = Code.expect;
+
 
 describe('Hapi Graceful Shutdown', () => {
 
